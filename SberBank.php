@@ -1,8 +1,8 @@
 <?php
 
 //Вводим данные для оплаты
-$userName = 'wubook_1-api';
-$password = 'wubook_1';
+$userName = 'user-api';
+$password = 'password';
 //$pay_url = "https://securepayments.sberbank.ru/";  //Боевой адрес
 $pay_url = "https://3dsec.sberbank.ru/"; //Тестовый адрес
 
