@@ -42,6 +42,9 @@
 
 ![image](https://user-images.githubusercontent.com/47315993/113978418-99311800-984c-11eb-9c79-6c6e7ecf3ab7.png)
 
+Загрузите изображение платежной системы 
+![image](https://user-images.githubusercontent.com/51836809/123103654-e598f680-d43e-11eb-9071-2460f9284ad7.png)
+
 Настройте оплату картой:
 
 ![image](https://user-images.githubusercontent.com/47315993/113978457-a4844380-984c-11eb-97de-555fb1ec68a6.png)
