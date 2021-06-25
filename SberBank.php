@@ -1,8 +1,8 @@
 <?php
 
 //Вводим данные для оплаты
-$userName = 'user-api';
-$password = 'password';
+$userName = "user-api";
+$password = "password";
 //$pay_url = "https://securepayments.sberbank.ru/";  //Боевой адрес
 $pay_url = "https://3dsec.sberbank.ru/"; //Тестовый адрес
 
@@ -29,7 +29,7 @@ $ko_url  = $params['ko_url'];
 $email   = $params['email'];
 
 
-$ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . $password . "&userName=" . $userName . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email);
+$ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email);
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
