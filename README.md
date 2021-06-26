@@ -5,7 +5,7 @@
 
 Указать Ваш логин и пароль:
 define('USERNAME', 'your_hotel-api');
-define('PASSWORD', 'ypur_password');
+define('PASSWORD', 'your_password');
 
 ## Сбербанк
 
