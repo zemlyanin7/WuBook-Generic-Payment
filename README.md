@@ -1,6 +1,12 @@
 # WuBook-Generic-Payment
 Тут собраны скрипты для самостоятельного использования WuBook Payment Gateway
 
+## Альфабанк
+
+Указать Ваш логин и пароль:
+define('USERNAME', 'your_hotel-api');
+define('PASSWORD', 'ypur_password');
+
 ## Сбербанк
 
 По умолчанию используется ссылка для тестового окружения.
