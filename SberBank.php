@@ -14,6 +14,8 @@ $ok_url  = '';
 $ko_url  = '';
 $email   = '';
 $async_ok_url   = '';
+$description = '';
+
 
 $params = array();
 
@@ -29,9 +31,10 @@ $ok_url  = $params['ok_url'];
 $ko_url  = $params['ko_url'];
 $email   = $params['email'];
 $async_ok_url = $params['async_ok_url'];
+$description = $params['rcode'];
 
 
-$ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email . "&dynamicCallbackUrl=" . $async_ok_url);
+$ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email . "&dynamicCallbackUrl=" . $async_ok_url . "&description=" . $description);
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
