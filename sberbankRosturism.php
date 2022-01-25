@@ -1,11 +1,11 @@
 <?php
 
 //Вводим данные для оплаты
-$userName = 'wubook_1-api';
-$password = 'wubook_1';
+$userName = 'хххх-api';
+$password = 'хххх_1';
 
-$PROMOuserName = "wubook_1-api";
-$PROMOpassword = "wubook_1-";
+$PROMOuserName = "wхххх-api";
+$PROMOpassword = "хххххk_1-";
 //$pay_url = "https://securepayments.sberbank.ru/";  //Боевой адрес
 $pay_url = "https://3dsec.sberbank.ru/"; //Тестовый адрес
 
