@@ -1,17 +1,17 @@
 <?php
 
 //Вводим данные для оплаты
-$userName = "user-api";
-$password = "password";
+$userName = 'wubook_1-api';
+$password = 'wubook_1';
 
-$PROMOuserName = "user-api";
-$PROMOpassword = "password";
+$PROMOuserName = "wubook_1-api";
+$PROMOpassword = "wubook_1-";
 //$pay_url = "https://securepayments.sberbank.ru/";  //Боевой адрес
 $pay_url = "https://3dsec.sberbank.ru/"; //Тестовый адрес
 
 
 // Тут нужно сделать список ID тарифов которым должен отправлятся оплата через Promo шлюз (1234, 123455) 
-$PromoList = array();
+$PromoList = array(123455);
 
 // Дальше ничего не менять
 $deposit = '';
@@ -35,14 +35,13 @@ $ok_url  = $params['ok_url'];
 $ko_url  = $params['ko_url'];
 $email   = $params['email'];
 $async_ok_url = $params['async_ok_url'];
-$items = json_decode($params['async_ok_url']);
-
+$items = json_decode($params['items']);
 
 foreach ($PromoList as $value) {
     if ($value == $items->{'special_offer_id'}) {
         $userName = $PROMOuserName;
         $password = $PROMOpassword;
-    };
+           };
 };
 
 $ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email . "&dynamicCallbackUrl=" . $async_ok_url . "&description=" . $description);
