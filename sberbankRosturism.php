@@ -36,7 +36,7 @@ $ko_url  = $params['ko_url'];
 $email   = $params['email'];
 $async_ok_url = $params['async_ok_url'];
 $items = json_decode($params['items']);
-$description = "Оплата за бронирование N" . $rcode; 
+$description = urlencode("Оплата за бронирование N" . $rcode); 
 
 foreach ($PromoList as $value) {
     if ($value == $items->{'special_offer_id'}) {
@@ -45,9 +45,7 @@ foreach ($PromoList as $value) {
            };
 };
 
-$url = urlencode($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email . "&dynamicCallbackUrl=" . $async_ok_url . "&description=" . $description);
-
-$ch = curl_init($url);
+$ch = curl_init($pay_url . "payment/rest/register.do?amount=" . intval($deposit) . "&currency=643&language=ru&orderNumber='" . $rcode . "'&password=" . urlencode($password) . "&userName=" . urlencode($userName) . "&returnUrl=" . $ok_url . "&failUrl=" . $ko_url . "&email=" . $email . "&dynamicCallbackUrl=" . $async_ok_url . "&description=" . $description);
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
