@@ -1,8 +1,8 @@
 <?php
 
 //Вводим данные для оплаты
-$apiKey = "B3078DCD11CF4A5CBA0B79D53E246A6D";
-$apiSecret = "C7FB94C4754B4730840BF9B948C858A5";
+$apiKey = "Key";
+$apiSecret = "Secret";
 $pay_url = "https://payze.io/api/v1";  //Боевой адрес
 $currency = "USD"; //
 
