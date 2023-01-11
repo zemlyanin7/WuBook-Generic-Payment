@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 //Вводим данные для оплаты
 $userName = "user-api";
 $password = "password";

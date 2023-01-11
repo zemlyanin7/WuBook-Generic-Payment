@@ -1,10 +1,11 @@
 <?php
-
+error_reporting(0);
 //Вводим данные для оплаты
 $apiKey = "API";
 $apiSecret = "SECRET";
 $pay_url = "https://payze.io/api/v1";  //Боевой адрес
 $currency = "USD"; //
+$link_to_logo = "https://wubook.net/skins/default/img/wubook.png";
 
 // Дальше ничего не менять
 
@@ -30,7 +31,7 @@ $data = array(
         "hookUrl" => "https://wupay.app/v1",
         "info" => array(
             "description" => $description,
-            "image" => "https://wubook.net/skins/default/img/wubook.png",
+            "image" => $link_to_logo,
             "name" => $description,
         ),
         "hookRefund" => false,
