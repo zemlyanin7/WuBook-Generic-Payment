@@ -5,6 +5,7 @@
 define('USERNAME', 'hotel-api');
 define('PASSWORD', 'passhotel!');
 define('GATEWAY_URL', 'https://pay.alfabank.ru/payment/rest/');
+//define('GATEWAY_URL', 'https://payment.alfabank.ru/payment/rest/');  // для всех логинов с префиксом r- используется шлюз payment.alfabank.ru
 
 $deposit = '';
 $rcode   = '';
