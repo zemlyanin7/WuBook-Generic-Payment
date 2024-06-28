@@ -2,10 +2,11 @@
 error_reporting(0);
 //Вводим данные для оплаты
 
-$publicId = 'pk_42228bfbe1b35f73d3059b4ef2278'; //Взять из личного кабинета
+$publicId = 'pk_*************************'; //Взять из личного кабинета
 $hotelName = 'Название отеля';
 $pay_url = "https://wupay.app/v1/test/cloudpayments.php"; //Адрес где лежит этот скрипт
 $currency= "RUB"; //Валюта RUB/USD/EUR/GBP/KZT
+
 
 
 // Дальше ничего не менять
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $reservation_info   = json_decode($_POST['reservation_info']);
     $email = $reservation_info -> {'customer'} -> {'email'};
 
-    $ch = $pay_url . "?amount=" . round($amount, 2) . "&invoiceId=" . $reservation_id . "&returnUrl=" . $return_ok . "&failUrl=" . $return_ko . "&email=" . $email;
+    $ch = $pay_url . "?amount=" . round($amount, 2) . "&invoiceId=" . $reservation_id . "&returnUrl=" . urlencode($return_ok) . "&failUrl=" . urlencode($return_ko) . "&email=" . $email;
 
     $echo_array = array ( 'status' => 'ok', 'link' => $ch );
    echo json_encode($echo_array);
@@ -41,9 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
  <head>
   <meta charset=\"utf-8\" />
-  <title>ORDER</title>
+  <title>Оплата бронирования</title>
   
-  <script src=\"https://widget.cloudpayments.ru/bundles/cloudpayments\"></script>
+  <script src=\"https://widget.cloudpayments.kz/bundles/cloudpayments\"></script>
   
  </head>
  <body>
@@ -66,10 +67,10 @@ window.onload = function () {
            },
            {
                onSuccess: function (options) { // success
-                document.location.replace(\"". htmlspecialchars($_GET["returnUrl"]) ."\");
+                document.location.replace(\"". htmlspecialchars(urldecode($_GET["returnUrl"])) ."\");
                },
                onFail: function (reason, options) { // fail
-                document.location.replace(\"". htmlspecialchars($_GET["failUrl"]) ."\");
+                document.location.replace(\"". htmlspecialchars(urldecode($_GET["failUrl"])) ."\");
                    
                },
                onComplete: function (paymentResult, options) { //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
